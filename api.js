@@ -3,7 +3,7 @@ const db = require("./db/transactions.json");
 const user = require("./db/user.json");
 const bodyParser = require("body-parser");
 
-const port = 3000;
+const port = 4000;
 const app = express();
 
 app.use(bodyParser.json());
