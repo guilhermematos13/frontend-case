@@ -1,10 +1,11 @@
 import logoImage from "../../assets/logo.svg"
+import { MainContainer } from "../../components/MainContainer"
 import { AppRouterNamesEnum } from "../../constants"
 import * as S from "./styles"
 
 export const Home = () => {
 	return (
-		<S.MainContainerStyled>
+		<MainContainer>
 			<div>
 				<S.ImageStyled src={logoImage} alt="Cora" title="Cora" />
 				<S.TitleStyled>Hey There &#128075;</S.TitleStyled>
@@ -28,6 +29,6 @@ export const Home = () => {
 					</S.AnchorButtonStyled>
 				</S.ContainerButtonsStyled>
 			</div>
-		</S.MainContainerStyled>
+		</MainContainer>
 	)
 }
