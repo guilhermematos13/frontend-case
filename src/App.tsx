@@ -1,18 +1,20 @@
-import { BrowserRouter } from 'react-router-dom'
-import { Router } from './Router'
-import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from './styles/themes/defaultTheme'
-import { GlobalStyle } from './styles/global'
+import { BrowserRouter } from "react-router-dom"
+import { Router } from "./Router"
+import { ThemeProvider } from "styled-components"
+import { defaultTheme } from "./styles/themes/defaultTheme"
+import { GlobalStyle } from "./styles/global"
+import { Toaster } from "react-hot-toast"
 
 function App() {
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Router />
-      </BrowserRouter>
-    </ThemeProvider>
-  )
+	return (
+		<ThemeProvider theme={defaultTheme}>
+			<BrowserRouter>
+				<Toaster />
+				<GlobalStyle />
+				<Router />
+			</BrowserRouter>
+		</ThemeProvider>
+	)
 }
 
 export default App

@@ -11,21 +11,63 @@ import {
 	TitleStyled,
 } from "./styles"
 import { Input } from "./components/Input"
-import { LoginButtonStyled } from "./components/Button/styles"
 import { LoginFormProps, LoginFormSchema } from "./schema"
 import { formatDocument } from "../../../utils/format-document"
+import { requestAuth } from "../../../api/Auth"
+import { useState } from "react"
+import { LoginButton } from "./components/Button"
+import axios, { HttpStatusCode } from "axios"
+import { ToastError } from "../../../components/ToastError"
+import { loginErrorMessages } from "./constants"
+import { useStorage } from "../../../hooks/useStorage"
+import { useNavigate } from "react-router-dom"
+import { AppRouterNamesEnum } from "../../../constants"
 
-function Login() {
+export function Login() {
+	const navigate = useNavigate()
+	const { setStorage } = useStorage()
+	const [isLoading, setIsLoading] = useState(false)
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<LoginFormProps>({
 		resolver: zodResolver(LoginFormSchema),
+		defaultValues: {
+			userLogin: "",
+			password: "",
+		},
 	})
 
-	const onSubmit = (data: LoginFormProps) => {
-		console.log("Dados do formulário:", data)
+	const onSubmit = async (data: LoginFormProps) => {
+		setIsLoading(true)
+		const documentUnmasked = data.userLogin.replace(/[.-]/g, "")
+		try {
+			const authResponse = await requestAuth({
+				cpf: documentUnmasked,
+				password: data.password,
+			})
+
+			if (authResponse.token) {
+				setStorage("token", authResponse.token)
+				navigate(AppRouterNamesEnum.IBANKING_LIST)
+			}
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				const statusCode = error.response?.status
+				switch (statusCode) {
+					case HttpStatusCode.Unauthorized:
+						return ToastError({ message: loginErrorMessages.UNATHORIZED })
+
+					default:
+						return ToastError({
+							message: loginErrorMessages.INTERNAL_SERVER_ERROR,
+						})
+				}
+			}
+		} finally {
+			setIsLoading(false)
+		}
 	}
 
 	return (
@@ -68,16 +110,14 @@ function Login() {
 							/>
 						</div>
 					</InputContainerStyled>
-					<LoginButtonStyled onClick={handleSubmit(onSubmit)}>
+					<LoginButton isLoading={isLoading} onClick={handleSubmit(onSubmit)}>
 						<ButtonContainerStyled>
 							<strong>Continuar</strong>
 							<img src={arrowRightImage} />
 						</ButtonContainerStyled>
-					</LoginButtonStyled>
+					</LoginButton>
 				</ContentContainerStyled>
 			</LoginContainerStyled>
 		</MainContainerStyled>
 	)
 }
-
-export { Login }

@@ -1,7 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type LoginButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	children: ReactNode
-	as?: string
-	variant?: "small" | "normal"
+	isLoading?: boolean
 }

@@ -1,6 +1,15 @@
 import { LoginButtonStyled } from "./styles"
-import { ButtonProps } from "./types"
+import { LoginButtonProps } from "./types"
+import { Loading } from "../../../../../components/Loading"
 
-export const LoginButton = ({ children, ...props }: ButtonProps) => {
-	return <LoginButtonStyled {...props}>{children}</LoginButtonStyled>
+export const LoginButton = ({
+	children,
+	isLoading = false,
+	...props
+}: LoginButtonProps) => {
+	return (
+		<LoginButtonStyled {...props}>
+			{isLoading ? <Loading /> : <>{children}</>}
+		</LoginButtonStyled>
+	)
 }

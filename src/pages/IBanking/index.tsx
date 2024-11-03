@@ -1,7 +1,12 @@
-import { Login } from './Login'
+import { Login } from "./Login"
+import { List } from "./List"
+import { EnumIBankingTypesName, IBankingProps } from "./types"
 
-function IBanking() {
-  return <Login />
+export function IBanking({ type }: IBankingProps) {
+	const ComponentMap = {
+		[EnumIBankingTypesName.LOGIN]: <Login />,
+		[EnumIBankingTypesName.LIST]: <List />,
+	}
+
+	return ComponentMap[type]
 }
-
-export { IBanking }
