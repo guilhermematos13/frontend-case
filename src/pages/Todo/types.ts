@@ -20,4 +20,4 @@ export enum ITodoTypesName {
 	DONE = "done",
 }
 
-export type { TodoListProps }
+export type { TodoListProps, ITodoTypes, ILinksTypes }

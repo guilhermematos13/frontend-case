@@ -1,5 +1,5 @@
 export enum AppRouterNamesEnum {
-	HOME = "/",
-	IBANKING = "IBanking",
-	TODO = "Todo",
+  HOME = '/',
+  IBANKING = 'IBanking',
+  TODO = 'Todo',
 }

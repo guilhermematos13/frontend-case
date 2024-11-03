@@ -1,7 +1,7 @@
-import { Login } from "./Login"
+import { Login } from './Login'
 
 function IBanking() {
-	return <Login />
+  return <Login />
 }
 
 export { IBanking }
