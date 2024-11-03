@@ -1,43 +1,83 @@
-import { useState, ChangeEvent } from 'react'
-import logoFullImage from '../../assets/logo-full.svg'
-import arrowRightImage from '../../assets/arrow-right.svg'
-import './index.css'
+import { Controller, useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import logoFullImage from "../../../assets/logo-full.svg"
+import arrowRightImage from "../../../assets/arrow-right.svg"
+import {
+	ButtonContainerStyled,
+	ContentContainerStyled,
+	InputContainerStyled,
+	LoginContainerStyled,
+	MainContainerStyled,
+	TitleStyled,
+} from "./styles"
+import { Input } from "./components/Input"
+import { LoginButtonStyled } from "./components/Button/styles"
+import { LoginFormProps, LoginFormSchema } from "./schema"
+import { formatDocument } from "../../../utils/format-document"
 
 function Login() {
-  const [cpf, setCpf] = useState('')
-  const [password, setPassword] = useState('')
+	const {
+		control,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<LoginFormProps>({
+		resolver: zodResolver(LoginFormSchema),
+	})
 
-  const handleChangeCPF = (e: ChangeEvent<unknown>) => {
-    setCpf(e.target.value)
-  }
+	const onSubmit = (data: LoginFormProps) => {
+		console.log("Dados do formulário:", data)
+	}
 
-  const handleChangePassword = (e: ChangeEvent<unknown>) => {
-    setPassword(e.target.value)
-  }
-
-  const handleAuth = () => {
-    console.log({
-      cpf,
-      password,
-    })
-  }
-
-  return (
-    <main id='login'>
-      <img src={logoFullImage} alt='Cora' title='Cora' />
-      <h1>Fazer Login</h1>
-      <input id='cpf' placeholder='Insira seu CPF' onChange={handleChangeCPF} />
-      <input
-        id='password'
-        placeholder='Digite sua senha'
-        onChange={handleChangePassword}
-      />
-      <button onClick={handleAuth}>
-        Continuar
-        <img src={arrowRightImage} />
-      </button>
-    </main>
-  )
+	return (
+		<MainContainerStyled>
+			<LoginContainerStyled>
+				<img src={logoFullImage} alt="Cora" title="Cora" />
+				<ContentContainerStyled>
+					<TitleStyled>Fazer LogIn</TitleStyled>
+					<InputContainerStyled>
+						<div>
+							<Controller
+								name="userLogin"
+								control={control}
+								render={({ field }) => (
+									<Input
+										{...field}
+										placeholder="Insira seu e-mail ou CPF"
+										onChange={(e) => {
+											const formattedValue = formatDocument(e.target.value)
+											field.onChange(formattedValue)
+										}}
+										errorMessage={errors.userLogin?.message}
+									/>
+								)}
+							/>
+						</div>
+						<div>
+							<Controller
+								name="password"
+								control={control}
+								render={({ field }) => (
+									<Input
+										{...field}
+										type="password"
+										id="password"
+										placeholder="Digite sua senha"
+										errorMessage={errors.password?.message}
+									/>
+								)}
+							/>
+						</div>
+					</InputContainerStyled>
+					<LoginButtonStyled onClick={handleSubmit(onSubmit)}>
+						<ButtonContainerStyled>
+							<strong>Continuar</strong>
+							<img src={arrowRightImage} />
+						</ButtonContainerStyled>
+					</LoginButtonStyled>
+				</ContentContainerStyled>
+			</LoginContainerStyled>
+		</MainContainerStyled>
+	)
 }
 
 export { Login }
