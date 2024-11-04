@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { AppRouterNamesEnum } from "./constants"
 import { Todo } from "./pages/Todo"
@@ -9,6 +9,10 @@ export function Router() {
 	return (
 		<Routes>
 			<Route path={AppRouterNamesEnum.HOME} element={<Home />} />
+			<Route
+				path={AppRouterNamesEnum.IBANKING}
+				element={<Navigate to={AppRouterNamesEnum.IBANKING_LOGIN} replace />}
+			/>
 			<Route
 				path={AppRouterNamesEnum.IBANKING_LOGIN}
 				element={<IBanking type={EnumIBankingTypesName.LOGIN} />}

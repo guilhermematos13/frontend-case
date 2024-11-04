@@ -1,8 +1,7 @@
 export const useStorage = () => {
-	const getStorage = (key: string) => {
+	const getStorage = <T>(key: string): T | null => {
 		const storageValue = localStorage.getItem(key)
-
-		return JSON.parse(storageValue ?? "")
+		return storageValue ? JSON.parse(storageValue) : null
 	}
 
 	const setStorage = (key: string, value: unknown) => {

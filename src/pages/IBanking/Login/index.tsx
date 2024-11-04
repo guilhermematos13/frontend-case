@@ -14,18 +14,18 @@ import { Input } from "./components/Input"
 import { LoginFormProps, LoginFormSchema } from "./schema"
 import { formatDocument } from "../../../utils/format-document"
 import { requestAuth } from "../../../api/Auth"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { LoginButton } from "./components/Button"
 import axios, { HttpStatusCode } from "axios"
 import { ToastError } from "../../../components/ToastError"
-import { loginErrorMessages } from "./constants"
 import { useStorage } from "../../../hooks/useStorage"
 import { useNavigate } from "react-router-dom"
 import { AppRouterNamesEnum } from "../../../constants"
+import { errorMessages, LocalStorageNameEnum } from "../constants"
 
 export function Login() {
 	const navigate = useNavigate()
-	const { setStorage } = useStorage()
+	const { setStorage, getStorage } = useStorage()
 	const [isLoading, setIsLoading] = useState(false)
 	const {
 		control,
@@ -49,7 +49,7 @@ export function Login() {
 			})
 
 			if (authResponse.token) {
-				setStorage("token", authResponse.token)
+				setStorage(LocalStorageNameEnum.TOKEN, authResponse.token)
 				navigate(AppRouterNamesEnum.IBANKING_LIST)
 			}
 		} catch (error) {
@@ -57,11 +57,11 @@ export function Login() {
 				const statusCode = error.response?.status
 				switch (statusCode) {
 					case HttpStatusCode.Unauthorized:
-						return ToastError({ message: loginErrorMessages.UNATHORIZED })
+						return ToastError({ message: errorMessages.UNATHORIZED })
 
 					default:
 						return ToastError({
-							message: loginErrorMessages.INTERNAL_SERVER_ERROR,
+							message: errorMessages.INTERNAL_SERVER_ERROR,
 						})
 				}
 			}
@@ -69,6 +69,14 @@ export function Login() {
 			setIsLoading(false)
 		}
 	}
+
+	useEffect(() => {
+		const userWithToken = getStorage<string>(LocalStorageNameEnum.TOKEN)
+
+		if (userWithToken) {
+			navigate(AppRouterNamesEnum.IBANKING_LIST)
+		}
+	}, [])
 
 	return (
 		<MainContainerStyled>

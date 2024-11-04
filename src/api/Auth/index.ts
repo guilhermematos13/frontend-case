@@ -1,12 +1,12 @@
 import { api } from "../axios"
 import { ROUTES } from "../constants"
-import { AuthRequest, AuthResponse } from "./types"
+import { IAuthRequest, IAuthResponse } from "./types"
 
 export const requestAuth = async ({
 	cpf,
 	password,
-}: AuthRequest): Promise<AuthResponse> => {
-	const response = await api.post<AuthResponse>(
+}: IAuthRequest): Promise<IAuthResponse> => {
+	const response = await api.post<IAuthResponse>(
 		ROUTES.AUTH,
 		{
 			cpf,

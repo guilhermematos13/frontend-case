@@ -1,10 +1,10 @@
-interface AuthResponse {
+interface IAuthResponse {
 	token: string
 }
 
-interface AuthRequest {
+interface IAuthRequest {
 	cpf: string
 	password: string
 }
 
-export type { AuthRequest, AuthResponse }
+export type { IAuthRequest, IAuthResponse }
