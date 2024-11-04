@@ -7,7 +7,8 @@ export const MainContainerList = styled.main`
 	padding: 60px 92px 60px 316px;
 `
 
-export const RadioButtonContainer = styled.div`
+export const HeaderContainer = styled.div`
 	display: flex;
 	gap: 16px;
+	justify-content: space-between;
 `

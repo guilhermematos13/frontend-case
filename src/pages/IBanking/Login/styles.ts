@@ -24,6 +24,12 @@ export const ContentContainerStyled = styled.div`
 	margin-top: 5.25rem;
 `
 
+export const FormContainerStyled = styled.form`
+	display: flex;
+	gap: 3rem;
+	flex-direction: column;
+`
+
 export const InputContainerStyled = styled.div`
 	display: flex;
 	flex-direction: column;

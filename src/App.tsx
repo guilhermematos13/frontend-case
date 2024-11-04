@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom"
-import { Router } from "./Router"
 import { ThemeProvider } from "styled-components"
 import { defaultTheme } from "./styles/themes/defaultTheme"
 import { GlobalStyle } from "./styles/global"
 import { Toaster } from "react-hot-toast"
+import { Router } from "./routes/Router"
 
-function App() {
+export function App() {
 	return (
 		<ThemeProvider theme={defaultTheme}>
 			<BrowserRouter>
@@ -16,5 +16,3 @@ function App() {
 		</ThemeProvider>
 	)
 }
-
-export default App

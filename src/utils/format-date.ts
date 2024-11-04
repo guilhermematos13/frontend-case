@@ -17,7 +17,10 @@ export const formatDateWithCapitalizedMonth = (
 	return parts.join(" ")
 }
 
-export function formatISODate(isoDate: string, locale: Locale = ptBR): string {
+export const formatISODate = (
+	isoDate: string,
+	locale: Locale = ptBR,
+): string => {
 	const date = parseISO(isoDate)
 	const formattedDate = format(date, "dd MMM yyyy - HH:mm", { locale })
 

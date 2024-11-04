@@ -3,15 +3,16 @@ import { useStorage } from "../../../hooks/useStorage"
 import { errorMessages, LocalStorageNameEnum } from "../constants"
 import { requestList } from "../../../api/List"
 import { useNavigate } from "react-router-dom"
-import { AppRouterNamesEnum } from "../../../constants"
+import { AppRouterNamesEnum } from "../../../routes/constants"
 import axios from "axios"
 import { ToastError } from "../../../components/ToastError"
 import { IListResponse, ItemsType } from "../../../api/List/types"
-import { MainContainerList, RadioButtonContainer } from "./styles"
+import { HeaderContainer, MainContainerList } from "./styles"
 import { FilterButtons } from "./Components/FilterButtons"
 import { buttonsFilterOptions } from "./constants"
 import { ExtractCard } from "./Components/ExtractCard"
 import { calculateDailyBalance } from "../../../utils/calculate-balance-day"
+import { LogoutButton } from "./Components/LogoutButton"
 
 export function List() {
 	const [filteredList, setFilteredList] = useState<IListResponse["results"]>()
@@ -71,37 +72,30 @@ export function List() {
 
 	return (
 		<MainContainerList>
-			<RadioButtonContainer>
+			<HeaderContainer>
 				<FilterButtons
 					options={buttonsFilterOptions}
 					onSelect={(value) => {
 						handleChangeListByFilter(value as ItemsType["entry"])
 					}}
 				/>
-			</RadioButtonContainer>
+				<LogoutButton />
+			</HeaderContainer>
 			{filteredList
-				? filteredList?.map((result) =>
-						result.items.map((item) => (
-							<div key={item.id}>
-								<ExtractCard
-									item={item}
-									date={result.date}
-									balanceDay={calculateDailyBalance(filteredList, result.date)}
-								/>
-							</div>
-						)),
-					)
-				: list?.results?.map((result) =>
-						result.items.map((item) => (
-							<div key={item.id}>
-								<ExtractCard
-									item={item}
-									date={result.date}
-									balanceDay={calculateDailyBalance(list.results, result.date)}
-								/>
-							</div>
-						)),
-					)}
+				? filteredList?.map((result) => (
+						<ExtractCard
+							items={result.items}
+							date={result.date}
+							balanceDay={calculateDailyBalance(filteredList, result.date)}
+						/>
+					))
+				: list?.results?.map((result) => (
+						<ExtractCard
+							items={result.items}
+							date={result.date}
+							balanceDay={calculateDailyBalance(list.results, result.date)}
+						/>
+					))}
 		</MainContainerList>
 	)
 }

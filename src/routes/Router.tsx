@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { Home } from "./pages/Home"
 import { AppRouterNamesEnum } from "./constants"
-import { Todo } from "./pages/Todo"
-import { IBanking } from "./pages/IBanking"
-import { EnumIBankingTypesName } from "./pages/IBanking/types"
+import { Home } from "../pages/Home"
+import { EnumIBankingTypesName } from "../pages/IBanking/types"
+import { IBanking } from "../pages/IBanking"
+import { Todo } from "../pages/Todo"
 
 export function Router() {
 	return (

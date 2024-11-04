@@ -27,7 +27,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 						type={isPasswordType && isPasswordVisible ? "text" : props.type}
 					/>
 					{isPasswordType && (
-						<ActionButtonStyled onClick={togglePasswordVisibility}>
+						<ActionButtonStyled
+							type="button"
+							onClick={togglePasswordVisibility}
+						>
 							{isPasswordVisible ? <EyeSlash size={20} /> : <Eye size={20} />}
 						</ActionButtonStyled>
 					)}

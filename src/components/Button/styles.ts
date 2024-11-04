@@ -4,7 +4,7 @@ import { ButtonStyledProps } from "./types"
 export const ButtonStyled = styled.button<ButtonStyledProps>`
 	padding: ${({ theme, $variant }) =>
 		$variant === "normal" ? theme.size.xs : theme.size.xxs};
-	font-size: 1.4em;
+	font-size: ${({ $variant }) => ($variant === "normal" ? "1rem" : "0.75rem")};
 	background-color: ${({ theme }) => theme.colors.white};
 	text-decoration: none;
 	border-radius: ${({ theme }) => theme.size.xxxs};

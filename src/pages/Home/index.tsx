@@ -1,7 +1,7 @@
 import { ButtonLink } from "../../components/ButtonLink"
 import { ContainerStyled } from "../../components/Container/styles"
 import { Header } from "../../components/Header"
-import { AppRouterNamesEnum } from "../../constants"
+import { AppRouterNamesEnum } from "../../routes/constants"
 import { headerData } from "./constants"
 
 export const Home = () => {

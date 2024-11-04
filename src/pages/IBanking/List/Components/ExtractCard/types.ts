@@ -1,7 +1,7 @@
 import { ItemsType } from "../../../../../api/List/types"
 
 export type ExtractCardProps = {
-	item: ItemsType
+	items: ItemsType[]
 	date: string
 	balanceDay: number
 }

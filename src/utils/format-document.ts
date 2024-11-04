@@ -1,4 +1,4 @@
-export function formatDocument(value: string): string {
+export const formatDocument = (value: string): string => {
 	const numericValue = value.replace(/\D/g, "")
 
 	if (/^\d+$/.test(value) && numericValue.length === 11) {

@@ -1,8 +1,8 @@
 import { IListResponse } from "../api/List/types"
 
-export function sortResultsByDate(
+export const sortResultsByDate = (
 	data?: IListResponse,
-): IListResponse["results"] {
+): IListResponse["results"] => {
 	if (data) {
 		return data.results.sort((a, b) => {
 			const dateA = new Date(a.date)

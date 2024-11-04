@@ -15,4 +15,9 @@ export const LoginButtonStyled = styled.button`
 		background-color: ${({ theme }) => theme.colors.lightGray};
 		transition: 0.5s;
 	}
+
+	&:disabled {
+		background-color: ${({ theme }) => theme.colors.lightGray};
+		cursor: not-allowed;
+	}
 `

@@ -13,7 +13,7 @@
 					"status": "COMPLETED"
 				},
 				{
-					"id": "abc123def456ghi789",
+					"id": "abc123def456ghi779",
 					"description": "Compra de produtos eletrônicos",
 					"label": "Compra aprovada",
 					"entry": "DEBIT",
@@ -23,7 +23,7 @@
 					"status": "COMPLETED"
 				},
 				{
-					"id": "abc123def456ghi789",
+					"id": "abc123def456ghi7129",
 					"description": "Compra de produtos eletrônicos",
 					"label": "Compra aprovada",
 					"entry": "CREDIT",
@@ -42,6 +42,26 @@
 					"description": "Assinatura mensal",
 					"label": "Débito automático",
 					"entry": "DEBIT",
+					"amount": 2990,
+					"name": "Empresa XYZ",
+					"dateEvent": "2024-01-11T14:47:46Z",
+					"status": "COMPLETED"
+				},
+				{
+					"id": "uvw987rst654xyz4132",
+					"description": "Assinatura mensal",
+					"label": "Débito automático",
+					"entry": "CREDIT",
+					"amount": 2990,
+					"name": "Empresa XYZ",
+					"dateEvent": "2024-01-11T14:47:46Z",
+					"status": "COMPLETED"
+				},
+				{
+					"id": "uvw987rst654xyz4123",
+					"description": "Reembolso de despesas",
+					"label": "Débito automático",
+					"entry": "CREDIT",
 					"amount": 2990,
 					"name": "Empresa XYZ",
 					"dateEvent": "2024-01-11T14:47:46Z",
