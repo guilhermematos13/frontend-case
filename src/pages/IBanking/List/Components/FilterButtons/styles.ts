@@ -3,16 +3,16 @@ import { FilterButtonStyledProps } from "./types"
 
 export const FilterButtonContainerStyled = styled.div`
 	display: flex;
-	gap: 16px;
+	gap: ${({ theme }) => theme.size.sm};
 `
 
 export const FilterButton = styled.button<FilterButtonStyledProps>`
-	padding: 4px 10px;
+	padding: ${({ theme }) => theme.size.xxxs} 0.625rem;
 	background-color: ${({ $selected, theme }) =>
 		$selected ? theme.colors.darkGray : theme.colors.lighterGray};
 	color: ${({ $selected, theme }) =>
 		$selected ? theme.colors.lighterGray : theme.colors.darkGray};
-	border-radius: 32px;
+	border-radius: ${({ theme }) => theme.size.lg};
 	font-family: "Nunito Sans", sans-serif;
 	cursor: pointer;
 	transition:

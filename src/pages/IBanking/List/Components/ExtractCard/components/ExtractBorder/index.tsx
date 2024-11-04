@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
 const ExtractBorderStyled = styled.div`
-	margin-left: 32px;
+	margin-left: ${({ theme }) => theme.size.lg};
 	background-color: ${({ theme }) => theme.colors.lightGray2};
-	height: 16px;
+	height: ${({ theme }) => theme.size.sm};
 	width: 1px;
 `
 

@@ -4,14 +4,14 @@ export const InputContainerStyled = styled.div`
 	display: flex;
 	background-color: ${({ theme }) => theme.colors.lighterGray};
 	border-radius: ${({ theme }) => theme.size.sm};
-	padding: 20px 16px;
+	padding: 1.25rem ${({ theme }) => theme.size.sm};
 `
 
 export const InputStyled = styled.input`
 	flex: 1;
 	font-family: "Nunito Sans", sans-serif;
 	background-color: transparent;
-	font-size: 1rem;
+	font-size: ${({ theme }) => theme.size.sm};
 	color: ${({ theme }) => theme.colors.gray};
 `
 
@@ -22,8 +22,8 @@ export const ActionButtonStyled = styled.button`
 `
 
 export const ErrorMessageStyled = styled.span`
-	font-size: 0.75rem;
-	margin-left: 16px;
+	font-size: ${({ theme }) => theme.size.xs};
+	margin-left: ${({ theme }) => theme.size.sm};
 	font-family: "Nunito Sans", sans-serif;
 	color: ${({ theme }) => theme.colors.lighterGray};
 `

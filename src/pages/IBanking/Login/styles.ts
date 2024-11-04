@@ -12,9 +12,11 @@ export const TitleStyled = styled.h1`
 
 export const LoginContainerStyled = styled.div`
 	background-color: ${({ theme }) => theme.colors.colorDarkMain};
-	padding: 97px 87px 87px 87px;
-	width: 674px;
-	border-radius: 0 0 16px 16px;
+	padding: 6.063rem 5.125rem 5.438rem 5.438rem;
+	width: 42.125rem;
+	border-radius: 0 0 ${({ theme }) => theme.size.sm}
+		${({ theme }) => theme.size.sm};
+	box-shadow: 0px 4px 16px 0px #20202014;
 `
 
 export const ContentContainerStyled = styled.div`
@@ -33,7 +35,7 @@ export const FormContainerStyled = styled.form`
 export const InputContainerStyled = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: ${({ theme }) => theme.size.md};
 `
 
 export const ButtonContainerStyled = styled.div`

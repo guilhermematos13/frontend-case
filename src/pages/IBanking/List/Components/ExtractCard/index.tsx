@@ -5,6 +5,7 @@ import {
 	ContentContainer,
 	HeaderContainer,
 	IconTitleStyled,
+	ItemContentContainer,
 	MainContainer,
 	ParagraphBalance,
 	ParagraphDay,
@@ -29,12 +30,12 @@ export const ExtractCard = ({ items, date, balanceDay }: ExtractCardProps) => {
 					saldo do dia<strong> {formatCurrency(balanceDay)}</strong>
 				</ParagraphBalance>
 			</HeaderContainer>
-			{items.map((item) => {
-				const isCreditEntry = item.entry === "CREDIT"
-				return (
-					<>
-						<ExtractBorder key={item.id} />
-						<ContentContainer>
+			<ExtractBorder />
+			<ContentContainer>
+				{items.map((item) => {
+					const isCreditEntry = item.entry === "CREDIT"
+					return (
+						<ItemContentContainer key={item.id}>
 							<TitleContainer>
 								<IconTitleStyled
 									$type={item.entry}
@@ -49,11 +50,11 @@ export const ExtractCard = ({ items, date, balanceDay }: ExtractCardProps) => {
 								<span>{isCreditEntry ? "+" : "-"} </span>
 								{formatCurrency(item.amount)}
 							</BalanceParagraph>
-						</ContentContainer>
-						<ExtractBorder />
-					</>
-				)
-			})}
+						</ItemContentContainer>
+					)
+				})}
+			</ContentContainer>
+			<ExtractBorder />
 		</MainContainer>
 	)
 }

@@ -8,19 +8,19 @@ export const ToDoContentStyled = styled.div`
 export const ToDoReferenceContainerStyled = styled.span``
 
 export const ToDoCardTitleStyled = styled.h3`
-	font-size: 2em;
-	line-height: 1em;
-	margin-bottom: 10px;
+	font-size: ${({ theme }) => theme.size.md};
+	line-height: ${({ theme }) => theme.size.sm};
+	margin-bottom: ${({ theme }) => theme.size.sm};
 `
 
 export const ToDoCardStatusStyled = styled.span<ToDoCardStyledProps>`
 	transform: translateY(-3px);
-	font-size: 0.5em;
-	line-height: 1em;
-	margin-left: 5px;
+	font-size: ${({ theme }) => theme.size.xs};
+	line-height: ${({ theme }) => theme.size.sm};
+	margin-left: ${({ theme }) => theme.size.xxxs};
 	border: 1px solid;
-	border-radius: 5px;
-	padding: 5px;
+	border-radius: ${({ theme }) => theme.size.xxxs};
+	padding: ${({ theme }) => theme.size.xxxs};
 	display: inline-block;
 	text-transform: uppercase;
 	color: ${({ theme, $status }) =>
@@ -30,18 +30,16 @@ export const ToDoCardStatusStyled = styled.span<ToDoCardStyledProps>`
 `
 
 export const ToDoDescriptionContainer = styled.div`
-	transform: translateY(-3px);
-	font-size: 0.5em;
-	font-size: 1.6em;
-	line-height: 1.3em;
+	font-size: ${({ theme }) => theme.size.sm};
+	line-height: ${({ theme }) => theme.size.md};
 	color: ${({ theme }) => theme.colors.gray};
 `
 
 export const ToDoLinksContainer = styled.div`
 	display: flex;
-	gap: 8px;
+	gap: ${({ theme }) => theme.size.xxs};
 	text-align: left;
-	margin-top: 10px;
+	margin-top: ${({ theme }) => theme.size.xxs};
 `
 
 export const ToDoActionsContainer = styled.div`

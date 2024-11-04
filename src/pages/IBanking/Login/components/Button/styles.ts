@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const LoginButtonStyled = styled.button`
-	padding: 20px 24px;
-	font-size: 1rem;
+	padding: 1.25rem ${({ theme }) => theme.size.md};
+	font-size: ${({ theme }) => theme.size.sm};
 	font-family: "Nunito Sans", sans-serif;
 	background-color: ${({ theme }) => theme.colors.white};
 	text-decoration: none;

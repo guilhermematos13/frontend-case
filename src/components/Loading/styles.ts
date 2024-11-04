@@ -15,7 +15,7 @@ export const LoadingSpinner = styled.div`
 	border: 2px solid ${({ theme }) => theme.colors.lightGray};
 	border-top: 2px solid ${({ theme }) => theme.colors.colorDarkMain};
 	border-radius: 50%;
-	width: 24px;
-	height: 24px;
+	width: ${({ theme }) => theme.size.md};
+	height: ${({ theme }) => theme.size.md};
 	animation: ${spin} 1s linear infinite;
 `
