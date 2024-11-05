@@ -1,6 +1,6 @@
-import { api } from "../axios"
-import { ROUTES } from "../constants"
+import { api } from "@api/axios"
 import { IListRequest, IListResponse } from "./types"
+import { ROUTES } from "@api/constants"
 
 export const requestList = async ({
 	token,

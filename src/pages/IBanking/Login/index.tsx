@@ -1,28 +1,20 @@
 import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import logoFullImage from "../../../assets/logo-full.svg"
-import arrowRightImage from "../../../assets/arrow-right.svg"
-import {
-	ButtonContainerStyled,
-	ContentContainerStyled,
-	FormContainerStyled,
-	InputContainerStyled,
-	LoginContainerStyled,
-	MainContainerStyled,
-	TitleStyled,
-} from "./styles"
-import { Input } from "./components/Input"
-import { LoginFormProps, LoginFormSchema } from "./schema"
-import { formatDocument } from "../../../utils/format-document"
-import { requestAuth } from "../../../api/Auth"
+import logoFullImage from "@assets/logo-full.svg"
+import arrowRightImage from "@assets/arrow-right.svg"
+import * as S from "./styles"
+import { useNavigate } from "react-router-dom"
+import { useStorage } from "@hooks/useStorage"
 import { useEffect, useState } from "react"
+import { LoginFormProps, LoginFormSchema } from "./schema"
+import { errorMessages, LocalStorageNameEnum } from "../constants"
+import { AppRouterNamesEnum } from "@routes/constants"
+import { Input } from "./components/Input"
+import { formatDocument } from "@utils/format-document"
 import { LoginButton } from "./components/Button"
 import axios, { HttpStatusCode } from "axios"
-import { ToastError } from "../../../components/ToastError"
-import { useStorage } from "../../../hooks/useStorage"
-import { useNavigate } from "react-router-dom"
-import { AppRouterNamesEnum } from "../../../routes/constants"
-import { errorMessages, LocalStorageNameEnum } from "../constants"
+import { ToastError } from "@components/ToastError"
+import { requestAuth } from "@api/Auth"
 import { cpf } from "cpf-cnpj-validator"
 
 export function Login() {
@@ -90,13 +82,13 @@ export function Login() {
 	}, [])
 
 	return (
-		<MainContainerStyled>
-			<LoginContainerStyled>
+		<S.MainContainerStyled>
+			<S.LoginContainerStyled>
 				<img src={logoFullImage} alt="Cora" title="Cora" />
-				<ContentContainerStyled>
-					<TitleStyled>Fazer LogIn</TitleStyled>
-					<FormContainerStyled onSubmit={handleSubmit(onSubmit)}>
-						<InputContainerStyled>
+				<S.ContentContainerStyled>
+					<S.TitleStyled>Fazer LogIn</S.TitleStyled>
+					<S.FormContainerStyled onSubmit={handleSubmit(onSubmit)}>
+						<S.InputContainerStyled>
 							<div>
 								<Controller
 									name="userLogin"
@@ -129,20 +121,20 @@ export function Login() {
 									)}
 								/>
 							</div>
-						</InputContainerStyled>
+						</S.InputContainerStyled>
 						<LoginButton
 							isLoading={isLoading}
 							type="submit"
 							disabled={isLoading || hasInputError}
 						>
-							<ButtonContainerStyled>
+							<S.ButtonContainerStyled>
 								<strong>Continuar</strong>
 								<img src={arrowRightImage} />
-							</ButtonContainerStyled>
+							</S.ButtonContainerStyled>
 						</LoginButton>
-					</FormContainerStyled>
-				</ContentContainerStyled>
-			</LoginContainerStyled>
-		</MainContainerStyled>
+					</S.FormContainerStyled>
+				</S.ContentContainerStyled>
+			</S.LoginContainerStyled>
+		</S.MainContainerStyled>
 	)
 }

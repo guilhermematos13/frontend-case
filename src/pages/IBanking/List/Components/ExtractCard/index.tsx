@@ -1,17 +1,5 @@
 import { ExtractBorder } from "./components/ExtractBorder"
-import {
-	BalanceParagraph,
-	BlackParagraph,
-	ContentContainer,
-	HeaderContainer,
-	IconTitleStyled,
-	ItemContentContainer,
-	MainContainer,
-	ParagraphBalance,
-	ParagraphDay,
-	TitleContainer,
-	TitleParagraph,
-} from "./styles"
+import * as S from "./styles"
 import debitIcon from "../../../../../assets/ic_arrow-return.svg"
 import creditIcon from "../../../../../assets/ic_arrow-down-in.svg"
 import { ExtractCardProps } from "./types"
@@ -23,38 +11,42 @@ import {
 
 export const ExtractCard = ({ items, date, balanceDay }: ExtractCardProps) => {
 	return (
-		<MainContainer>
-			<HeaderContainer>
-				<ParagraphDay>{formatDateWithCapitalizedMonth(date)}</ParagraphDay>
-				<ParagraphBalance>
+		<S.MainContainer>
+			<S.HeaderContainer>
+				<S.ParagraphDay>{formatDateWithCapitalizedMonth(date)}</S.ParagraphDay>
+				<S.ParagraphBalance>
 					saldo do dia<strong> {formatCurrency(balanceDay)}</strong>
-				</ParagraphBalance>
-			</HeaderContainer>
+				</S.ParagraphBalance>
+			</S.HeaderContainer>
 			<ExtractBorder />
-			<ContentContainer>
+			<S.ContentContainer>
 				{items.map((item) => {
 					const isCreditEntry = item.entry === "CREDIT"
 					return (
-						<ItemContentContainer key={item.id}>
-							<TitleContainer>
-								<IconTitleStyled
+						<S.ItemContentContainer key={item.id}>
+							<S.TitleContainer>
+								<S.IconTitleStyled
 									$type={item.entry}
 									alt={isCreditEntry ? "Icone de crédito" : "Icone de Débito"}
 									src={isCreditEntry ? creditIcon : debitIcon}
 								/>
-								<TitleParagraph $type={item.entry}>{item.name}</TitleParagraph>
-							</TitleContainer>
-							<BlackParagraph>{item.description}</BlackParagraph>
-							<BlackParagraph>{formatISODate(item.dateEvent)}</BlackParagraph>
-							<BalanceParagraph $type={item.entry}>
+								<S.TitleParagraph $type={item.entry}>
+									{item.name}
+								</S.TitleParagraph>
+							</S.TitleContainer>
+							<S.BlackParagraph>{item.description}</S.BlackParagraph>
+							<S.BlackParagraph>
+								{formatISODate(item.dateEvent)}
+							</S.BlackParagraph>
+							<S.BalanceParagraph $type={item.entry}>
 								<span>{isCreditEntry ? "+" : "-"} </span>
 								{formatCurrency(item.amount)}
-							</BalanceParagraph>
-						</ItemContentContainer>
+							</S.BalanceParagraph>
+						</S.ItemContentContainer>
 					)
 				})}
-			</ContentContainer>
+			</S.ContentContainer>
 			<ExtractBorder />
-		</MainContainer>
+		</S.MainContainer>
 	)
 }

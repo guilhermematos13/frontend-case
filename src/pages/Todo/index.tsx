@@ -1,13 +1,13 @@
-import { useState, ChangeEvent, FormEvent, useCallback } from "react"
-import { TODO_LIST } from "./initial-state"
+import { ChangeEvent, FormEvent, useCallback, useState } from "react"
 import { ITodoTypesName, TodoListProps } from "./types"
-import { ToDoCard } from "./components/ToDoCard"
-import { ToDoCardEmpty } from "./components/ToDoCardEmpty"
+import { TODO_LIST } from "./initial-state"
+import { ContainerStyled } from "@components/Container/styles"
 import { ToDoWrapperStyled } from "./styles"
-import { ToDoSearchForm } from "./components/ToDoSearch"
-import { ContainerStyled } from "../../components/Container/styles"
-import { Header } from "../../components/Header"
+import { Header } from "@components/Header"
 import { headerData } from "./constants"
+import { ToDoSearchForm } from "./components/ToDoSearch"
+import { ToDoCardEmpty } from "./components/ToDoCardEmpty"
+import { ToDoCard } from "./components/ToDoCard"
 
 export function Todo() {
 	const [items, setItems] = useState<TodoListProps[]>(TODO_LIST)
