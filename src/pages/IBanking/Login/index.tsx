@@ -36,9 +36,9 @@ export function Login() {
 
 	const hasInputError = Object.keys(errors).length > 0
 
-	const onSubmit = async (data: LoginFormProps) => {
-		setIsLoading(true)
+	const handleRequestByDocument = async (data: LoginFormProps) => {
 		const documentUnmasked = data.userLogin.replace(/[.-]/g, "")
+
 		try {
 			const cpfValidator = cpf.isValid(documentUnmasked)
 
@@ -70,6 +70,47 @@ export function Login() {
 			}
 		} finally {
 			setIsLoading(false)
+		}
+	}
+
+	const handleRequestByEmail = async (data: LoginFormProps) => {
+		try {
+			const authResponse = await requestAuth({
+				cpf: data.userLogin,
+				password: data.password,
+			})
+
+			if (authResponse.token) {
+				setStorage(LocalStorageNameEnum.TOKEN, authResponse.token)
+				navigate(AppRouterNamesEnum.IBANKING_LIST)
+			}
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				const statusCode = error.response?.status
+				switch (statusCode) {
+					case HttpStatusCode.Unauthorized:
+						return setError("password", { message: errorMessages.UNATHORIZED })
+
+					default:
+						return ToastError({
+							message: errorMessages.INTERNAL_SERVER_ERROR,
+						})
+				}
+			}
+		} finally {
+			setIsLoading(false)
+		}
+	}
+
+	const onSubmit = async (data: LoginFormProps) => {
+		setIsLoading(true)
+		const documentUnmasked = data.userLogin.replace(/[.-]/g, "")
+		const isDocument = documentUnmasked.length === 11
+
+		if (isDocument) {
+			handleRequestByDocument(data)
+		} else {
+			handleRequestByEmail(data)
 		}
 	}
 
