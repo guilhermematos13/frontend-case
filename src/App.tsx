@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components"
 import { defaultTheme } from "./styles/themes/defaultTheme"
 import { GlobalStyle } from "./styles/global"
 import { Toaster } from "react-hot-toast"
-import { Router } from "./Routes/Router"
+import { Router } from "./routes/Router"
 
 export function App() {
 	return (

@@ -39,6 +39,12 @@ export const ItemContentContainer = styled.div`
 	display: grid;
 	grid-template-columns: 30% 30% 20% 20%;
 	justify-content: space-between;
+
+	@media (max-width: 1024px) {
+		display: flex;
+		flex-direction: column;
+		gap: ${({ theme }) => theme.size.xs};
+	}
 `
 
 export const TitleContainer = styled.div`

@@ -15,7 +15,7 @@ export const LogoutButton = () => {
 	}
 
 	return (
-		<LogoutButtonStyled onClick={handleLogoutButton}>
+		<LogoutButtonStyled onClick={handleLogoutButton} aria-label="Sair">
 			Sair
 			<SignOut />
 		</LogoutButtonStyled>

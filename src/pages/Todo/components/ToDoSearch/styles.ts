@@ -10,7 +10,7 @@ export const InputContainerStyled = styled.div`
 	flex: 1;
 	border: 1px solid ${({ theme }) => theme.colors.lightGray};
 	border-radius: ${({ theme }) => theme.size.xxxs} 0 0
-		${({ theme }) => theme.size.sm};
+		${({ theme }) => theme.size.xxxs};
 	display: flex;
 `
 

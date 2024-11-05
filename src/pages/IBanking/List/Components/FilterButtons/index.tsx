@@ -19,6 +19,7 @@ export const FilterButtons = ({ onSelect, options }: FilterButtonsProps) => {
 		<FilterButtonContainerStyled>
 			{options.map((option) => (
 				<FilterButton
+					aria-label={`Seleciona o botão com a opção ${option.label}`}
 					key={option.value}
 					$selected={selectedValue === option.value}
 					onClick={() => handleOptionChange(option.value)}

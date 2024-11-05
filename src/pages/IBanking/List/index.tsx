@@ -84,6 +84,7 @@ export function List() {
 			{filteredList
 				? filteredList?.map((result) => (
 						<ExtractCard
+							key={result.date}
 							items={result.items}
 							date={result.date}
 							balanceDay={calculateDailyBalance(filteredList, result.date)}
@@ -91,6 +92,7 @@ export function List() {
 					))
 				: list?.results?.map((result) => (
 						<ExtractCard
+							key={result.date}
 							items={result.items}
 							date={result.date}
 							balanceDay={calculateDailyBalance(list.results, result.date)}

@@ -19,12 +19,20 @@ export const ContainerStyled = styled.div`
 	font-family: "Roboto", sans-serif;
 	margin: 0 auto;
 
+	@media (max-width: 768px) {
+		padding: 1rem;
+	}
+
 	.buttons {
 		list-style: none;
 		margin-top: 1.25rem;
 		display: flex;
 		gap: ${({ theme }) => theme.size.xxs};
 		justify-content: center;
+
+		@media (max-width: 768px) {
+			flex-direction: column;
+		}
 	}
 	.buttons li:first-child {
 		margin-bottom: ${({ theme }) => theme.size.xxs};

@@ -14,12 +14,12 @@ export const ToDoCard = ({
 				{item.required ? "*" : ""}.
 			</S.ToDoReferenceContainerStyled>
 			<S.ToDoContentStyled>
-				<S.ToDoCardTitleStyled>
-					{item.title}
+				<S.TitleAndStatusContainer>
+					<S.ToDoCardTitleStyled>{item.title}</S.ToDoCardTitleStyled>
 					<S.ToDoCardStatusStyled $status={item.status}>
 						{item.status}
 					</S.ToDoCardStatusStyled>
-				</S.ToDoCardTitleStyled>
+				</S.TitleAndStatusContainer>
 				<S.ToDoDescriptionContainer>
 					{item.description}
 				</S.ToDoDescriptionContainer>
@@ -33,10 +33,18 @@ export const ToDoCard = ({
 					</S.ToDoLinksContainer>
 				)}
 				<S.ToDoActionsContainer>
-					<Button variant="small" onClick={handleDeleteTask}>
+					<Button
+						aria-label="Botão para deletar a task."
+						variant="small"
+						onClick={handleDeleteTask}
+					>
 						Delete
 					</Button>
-					<Button variant="small" onClick={handleChangeTaskStatus}>
+					<Button
+						aria-label={`Botão para mudar o status da task para ${item.status === "done" ? "PENDING" : "DONE"}`}
+						variant="small"
+						onClick={handleChangeTaskStatus}
+					>
 						Change to{" "}
 						<strong>
 							<u>{item.status === "done" ? "PENDING" : "DONE"}</u>
