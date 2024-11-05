@@ -1,9 +1,9 @@
-import { LoadingContainer, LoadingSpinner } from "./styles"
+import { LoadingContainer, LoadingSpinner } from './styles'
 
 export const Loading = () => {
-	return (
-		<LoadingContainer>
-			<LoadingSpinner />
-		</LoadingContainer>
-	)
+  return (
+    <LoadingContainer>
+      <LoadingSpinner />
+    </LoadingContainer>
+  )
 }

@@ -1,12 +1,12 @@
-import { Options } from "./components/FilterButtons/types"
+import { Options } from './components/FilterButtons/types'
 
 export const buttonsFilterOptions: Options[] = [
-	{
-		label: "Débito",
-		value: "DEBIT",
-	},
-	{
-		label: "Crédito",
-		value: "CREDIT",
-	},
+  {
+    label: 'Débito',
+    value: 'DEBIT',
+  },
+  {
+    label: 'Crédito',
+    value: 'CREDIT',
+  },
 ]

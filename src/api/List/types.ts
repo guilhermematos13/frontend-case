@@ -1,26 +1,26 @@
 interface IListRequest {
-	token: string
+  token: string
 }
 
 interface IListResponse {
-	results: Array<IResults>
-	itemsTotal: number
+  results: Array<IResults>
+  itemsTotal: number
 }
 
 interface IResults {
-	items: Array<ItemsType>
-	date: string
+  items: Array<ItemsType>
+  date: string
 }
 
 interface ItemsType {
-	id: string
-	description: string
-	label: string
-	entry: "DEBIT" | "CREDIT"
-	amount: number
-	name: string
-	dateEvent: string
-	status: string
+  id: string
+  description: string
+  label: string
+  entry: 'DEBIT' | 'CREDIT'
+  amount: number
+  name: string
+  dateEvent: string
+  status: string
 }
 
 export type { IListResponse, IListRequest, ItemsType }

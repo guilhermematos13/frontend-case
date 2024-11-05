@@ -1,15 +1,15 @@
 type FilterButtonsProps = {
-	options: Array<Options>
-	onSelect: (value: string) => void
+  options: Array<Options>
+  onSelect: (value: string) => void
 }
 
 type Options = {
-	value: string
-	label: string
+  value: string
+  label: string
 }
 
 type FilterButtonStyledProps = {
-	$selected: boolean
+  $selected: boolean
 }
 
 export type { FilterButtonsProps, Options, FilterButtonStyledProps }
