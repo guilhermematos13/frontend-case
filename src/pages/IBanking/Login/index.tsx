@@ -16,6 +16,7 @@ import axios, { HttpStatusCode } from "axios"
 import { ToastError } from "@components/ToastError"
 import { requestAuth } from "@api/Auth"
 import { cpf } from "cpf-cnpj-validator"
+import { AES } from "crypto-js"
 
 export function Login() {
 	const navigate = useNavigate()
@@ -49,7 +50,12 @@ export function Login() {
 				})
 
 				if (authResponse.token) {
-					setStorage(LocalStorageNameEnum.TOKEN, authResponse.token)
+					const token = AES.encrypt(
+						authResponse.token,
+						import.meta.env.VITE_SECRET_KEY,
+					).toString()
+
+					setStorage(LocalStorageNameEnum.TOKEN, token)
 					navigate(AppRouterNamesEnum.IBANKING_LIST)
 				}
 			} else {
@@ -81,7 +87,12 @@ export function Login() {
 			})
 
 			if (authResponse.token) {
-				setStorage(LocalStorageNameEnum.TOKEN, authResponse.token)
+				const token = AES.encrypt(
+					authResponse.token,
+					import.meta.env.VITE_SECRET_KEY,
+				).toString()
+
+				setStorage(LocalStorageNameEnum.TOKEN, token)
 				navigate(AppRouterNamesEnum.IBANKING_LIST)
 			}
 		} catch (error) {

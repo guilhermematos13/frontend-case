@@ -1,6 +1,6 @@
 import toast from "react-hot-toast"
 import { ToastErrorProps } from "./types"
-import { defaultTheme } from "../../styles/themes/defaultTheme"
+import { defaultTheme } from "@styles/themes/defaultTheme"
 
 export const ToastError = ({ message }: ToastErrorProps) => {
 	return toast.error(message, {

@@ -1,4 +1,4 @@
-import { ItemsType } from "../../../../../api/List/types"
+import { ItemsType } from "@api/List/types"
 
 export type ExtractCardProps = {
 	items: ItemsType[]

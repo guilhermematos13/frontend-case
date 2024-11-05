@@ -7,12 +7,13 @@ import { useCallback, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { errorMessages, LocalStorageNameEnum } from "../constants"
 import { HeaderContainer, MainContainerList } from "./styles"
-import { FilterButtons } from "./Components/FilterButtons"
+import { FilterButtons } from "./components/FilterButtons"
 import { buttonsFilterOptions } from "./constants"
-import { LogoutButton } from "./Components/LogoutButton"
-import { ExtractCard } from "./Components/ExtractCard"
+import { LogoutButton } from "./components/LogoutButton"
+import { ExtractCard } from "./components/ExtractCard"
 import { calculateDailyBalance } from "@utils/calculate-balance-day"
 import { AppRouterNamesEnum } from "@routes/constants"
+import { AES, enc } from "crypto-js"
 
 export function List() {
 	const [filteredList, setFilteredList] = useState<IListResponse["results"]>()
@@ -62,9 +63,13 @@ export function List() {
 
 	useEffect(() => {
 		const token = getStorage<string>(LocalStorageNameEnum.TOKEN)
+		const decryptToken = AES.decrypt(
+			token || (token as string),
+			import.meta.env.VITE_SECRET_KEY,
+		).toString(enc.Utf8)
 
 		if (token) {
-			handleRequestList(token)
+			handleRequestList(decryptToken)
 		} else {
 			navigate(AppRouterNamesEnum.IBANKING_LOGIN)
 		}

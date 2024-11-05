@@ -1,13 +1,13 @@
-import { ExtractBorder } from "./components/ExtractBorder"
-import * as S from "./styles"
-import debitIcon from "../../../../../assets/ic_arrow-return.svg"
-import creditIcon from "../../../../../assets/ic_arrow-down-in.svg"
-import { ExtractCardProps } from "./types"
-import { formatCurrency } from "../../../../../utils/format-price"
+import debitIcon from "@assets/ic_arrow-return.svg"
+import creditIcon from "@assets/ic_arrow-down-in.svg"
+import { formatCurrency } from "@utils/format-price"
 import {
 	formatDateWithCapitalizedMonth,
 	formatISODate,
-} from "../../../../../utils/format-date"
+} from "@utils/format-date"
+import * as S from "./styles"
+import { ExtractBorder } from "./components/ExtractBorder"
+import { ExtractCardProps } from "./types"
 
 export const ExtractCard = ({ items, date, balanceDay }: ExtractCardProps) => {
 	return (

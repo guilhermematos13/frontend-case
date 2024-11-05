@@ -1,9 +1,9 @@
 import { SignOut } from "@phosphor-icons/react"
-import { LogoutButtonStyled } from "./styles"
-import { useStorage } from "../../../../../hooks/useStorage"
-import { LocalStorageNameEnum } from "../../../constants"
 import { useNavigate } from "react-router-dom"
-import { AppRouterNamesEnum } from "../../../../../routes/constants"
+import { AppRouterNamesEnum } from "@routes/constants"
+import { LogoutButtonStyled } from "./styles"
+import { LocalStorageNameEnum } from "@pages/IBanking/constants"
+import { useStorage } from "@hooks/useStorage"
 
 export const LogoutButton = () => {
 	const navigate = useNavigate()

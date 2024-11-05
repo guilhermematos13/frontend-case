@@ -28,7 +28,7 @@ export const ParagraphBalance = styled.p`
 
 export const ContentContainer = styled.div`
 	padding: ${({ theme }) => theme.size.lg} ${({ theme }) => theme.size.sm};
-	border: 1px solid ${({ theme }) => theme.colors.lightGray2};
+	border: 1px solid ${({ theme }) => theme.colors.lightGray};
 	border-radius: ${({ theme }) => theme.size.sm};
 	display: flex;
 	gap: ${({ theme }) => theme.size.md};

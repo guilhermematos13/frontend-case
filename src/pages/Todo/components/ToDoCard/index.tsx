@@ -1,6 +1,7 @@
 import { ToDoCardProps } from "./types"
 import * as S from "./styles"
-import { Button } from "../../../../components/Button"
+import { Button } from "@components/Button"
+import { ButtonLink } from "@components/ButtonLink"
 
 export const ToDoCard = ({
 	item,
@@ -26,9 +27,14 @@ export const ToDoCard = ({
 				{item.links && item.links.length > 0 && (
 					<S.ToDoLinksContainer>
 						{item.links.map((link) => (
-							<a key={link.name} target="_blank" href={link.url}>
+							<ButtonLink
+								variant="textLink"
+								key={link.name}
+								target="_blank"
+								href={link.url}
+							>
 								{link.name}
-							</a>
+							</ButtonLink>
 						))}
 					</S.ToDoLinksContainer>
 				)}

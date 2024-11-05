@@ -44,11 +44,15 @@ export const ButtonSubmitStyled = styled.button`
 	text-transform: uppercase;
 	border-radius: 0 ${({ theme }) => theme.size.xxs}
 		${({ theme }) => theme.size.xxs} 0;
-	background-color: ${({ theme }) => theme.colors.lightGray};
+	background-color: ${({ theme }) => theme.colors.lighterGray};
+	color: ${({ theme }) => theme.colors.colorMain};
+	border: 1px solid ${({ theme }) => theme.colors.colorMain};
 	cursor: pointer;
 
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.gray};
+		background-color: ${({ theme }) => theme.colors.colorMain};
+		border: 1px solid transparent;
+		color: ${({ theme }) => theme.colors.lighterGray};
 		transition: 0.5s;
 	}
 `

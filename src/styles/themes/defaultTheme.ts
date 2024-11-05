@@ -6,7 +6,6 @@ export const defaultTheme = {
 		white: "#ffffff",
 		darkGray: "#3B3B3B",
 		gray: "#6b7076",
-		lightGray2: "#DEE4E9",
 		lightGray: "#dfdfdf",
 		lighterGray: "#f0f4f8",
 		error: "#ee3636",
