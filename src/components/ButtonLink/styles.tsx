@@ -1,10 +1,10 @@
-import { ButtonLinkStyledProps } from './types'
-import styled from 'styled-components'
+import { ButtonLinkStyledProps } from "./types"
+import styled from "styled-components"
 
 export const ButtonLinkStyled = styled.a<ButtonLinkStyledProps>`
-  ${({ $variant, theme }) =>
-    $variant === 'button'
-      ? `
+	${({ $variant, theme }) =>
+		$variant === "button"
+			? `
 	display: inline-block;
 	padding: ${theme.size.sm};
 	font-size: ${theme.size.sm};
@@ -21,7 +21,7 @@ export const ButtonLinkStyled = styled.a<ButtonLinkStyledProps>`
 		transition: 0.5s;
 	}
 	`
-      : `
+			: `
 	display: inline-block;
 	font-size: ${theme.size.xs};
 	text-decoration: none;
@@ -31,7 +31,7 @@ export const ButtonLinkStyled = styled.a<ButtonLinkStyledProps>`
 	&::after {
 		content: '';
 		display: block;
-		border-bottom: solid 1px ${theme.colors.colorMain};
+		border-bottom: 1px solid ${theme.colors.colorMain};
 		transform: scaleX(0);
 		transition: transform 250ms ease-in-out;
 		transform-origin: 0% 50% 
