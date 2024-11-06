@@ -1,13 +1,13 @@
-import { api } from '@api/axios'
-import { IListRequest, IListResponse } from './types'
-import { ROUTES } from '@api/constants'
+import { api } from "@api/axios"
+import { IListRequest, IListResponse } from "./types"
+import { ROUTES } from "@api/constants"
 
 export const requestList = async ({
-  token,
+	token,
 }: IListRequest): Promise<IListResponse> => {
-  const response = await api.get<IListResponse>(ROUTES.LIST, {
-    headers: { token: `Bearer ${token}` },
-  })
+	const response = await api.get<IListResponse>(ROUTES.LIST, {
+		headers: { token: `Bearer ${token}` },
+	})
 
-  return response.data
+	return response.data
 }

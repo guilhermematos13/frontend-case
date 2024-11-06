@@ -1,4 +1,4 @@
 export const ROUTES = {
-  AUTH: 'auth',
-  LIST: 'list',
+	AUTH: "auth",
+	LIST: "list",
 }

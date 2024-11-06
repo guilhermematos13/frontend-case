@@ -1,8 +1,8 @@
 export type IBankingProps = {
-  type: EnumIBankingTypesName
+	type: EnumIBankingTypesName
 }
 
 export enum EnumIBankingTypesName {
-  LOGIN = 'login',
-  LIST = 'list',
+	LOGIN = "login",
+	LIST = "list",
 }

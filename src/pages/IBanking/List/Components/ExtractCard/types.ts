@@ -1,11 +1,11 @@
-import { ItemsType } from '@api/List/types'
+import { ItemsType } from "@api/List/types"
 
 export type ExtractCardProps = {
-  items: ItemsType[]
-  date: string
-  balanceDay: number
+	items: ItemsType[]
+	date: string
+	balanceDay: number
 }
 
 export type TypePropsStyled = {
-  $type: 'DEBIT' | 'CREDIT'
+	$type: "DEBIT" | "CREDIT"
 }

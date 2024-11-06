@@ -1,11 +1,11 @@
-import { TodoListProps } from '../../types'
+import { TodoListProps } from "../../types"
 
 export type ToDoCardProps = {
-  item: Omit<TodoListProps, 'id'>
-  handleDeleteTask: () => void
-  handleChangeTaskStatus: () => void
+	item: Omit<TodoListProps, "id">
+	handleDeleteTask: () => void
+	handleChangeTaskStatus: () => void
 }
 
 export type ToDoCardStyledProps = {
-  $status?: TodoListProps['status']
+	$status?: TodoListProps["status"]
 }
