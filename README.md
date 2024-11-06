@@ -50,7 +50,7 @@ O objetivo deste teste é avaliar sua capacidade de desenvolver interfaces web. 
    Se quiser conferir se o server esta rodando é só rodar o seguinte **cURL**:
 
    ```bash
-   curl --location 'http://localhost:3000/health-check'
+   curl --location 'http://localhost:4000/health-check'
    ```
 
 4. Agora é só seguir o passo a passo que vai aparecer no seu localhost (possivelmente na porta `5173`). Boa sorte :v:
@@ -64,7 +64,7 @@ A `api` já é fornecida, e por ser em javascript você tem total poder de ediç
 cURL:
 
 ```bash
-curl --location 'http://localhost:3000/auth' \
+curl --location 'http://localhost:4000/auth' \
 --header 'Content-Type: application/json' \
 --data '{
     "cpf": "35819357833",
@@ -78,7 +78,7 @@ Response:
 
 ```json
 {
-  "token": "$TOKEN"
+	"token": "$TOKEN"
 }
 ```
 
@@ -87,7 +87,7 @@ Response:
 cURL:
 
 ```bash
-curl --location 'http://localhost:3000/list' \
+curl --location 'http://localhost:4000/list' \
 --header 'token: $TOKEN'
 ```
 
@@ -95,20 +95,20 @@ Response Interface:
 
 ```ts
 interface IResponseList {
-  results: {
-    items: {
-      id: string
-      description: string
-      label: string
-      entry: 'DEBIT' | 'CREDIT'
-      amount: number //in cents
-      name: string
-      dateEvent: string //ex: 2024-01-11T14:47:46Z
-      status: string
-    }[]
-    date: string //ex: 2024-02-01
-  }[]
-  itemsTotal: number
+	results: {
+		items: {
+			id: string
+			description: string
+			label: string
+			entry: "DEBIT" | "CREDIT"
+			amount: number //in cents
+			name: string
+			dateEvent: string //ex: 2024-01-11T14:47:46Z
+			status: string
+		}[]
+		date: string //ex: 2024-02-01
+	}[]
+	itemsTotal: number
 }
 ```
 

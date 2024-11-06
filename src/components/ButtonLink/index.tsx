@@ -1,14 +1,12 @@
-import { ButtonLinkStyled } from './styles'
-import { ButtonLinkProps } from './types'
+import { ButtonLinkStyled } from "./styles"
+import { ButtonLinkProps } from "./types"
 
 export const ButtonLink = ({
-  variant = 'button',
-  children,
-  ...props
-}: ButtonLinkProps) => {
-  return (
-    <ButtonLinkStyled $variant={variant} {...props}>
-      {children}
-    </ButtonLinkStyled>
-  )
-}
+	variant = "button",
+	children,
+	...props
+}: ButtonLinkProps) => (
+	<ButtonLinkStyled $variant={variant} {...props}>
+		{children}
+	</ButtonLinkStyled>
+)

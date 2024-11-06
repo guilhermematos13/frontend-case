@@ -64,15 +64,12 @@ export function Login() {
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
 				const statusCode = error.response?.status
-				switch (statusCode) {
-					case HttpStatusCode.Unauthorized:
-						return setError("password", { message: errorMessages.UNATHORIZED })
-
-					default:
-						return ToastError({
-							message: errorMessages.INTERNAL_SERVER_ERROR,
-						})
+				if (HttpStatusCode.Unauthorized === statusCode) {
+					return setError("password", { message: errorMessages.UNATHORIZED })
 				}
+				return ToastError({
+					message: errorMessages.INTERNAL_SERVER_ERROR,
+				})
 			}
 		} finally {
 			setIsLoading(false)
@@ -98,15 +95,12 @@ export function Login() {
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
 				const statusCode = error.response?.status
-				switch (statusCode) {
-					case HttpStatusCode.Unauthorized:
-						return setError("password", { message: errorMessages.UNATHORIZED })
-
-					default:
-						return ToastError({
-							message: errorMessages.INTERNAL_SERVER_ERROR,
-						})
+				if (HttpStatusCode.Unauthorized === statusCode) {
+					return setError("password", { message: errorMessages.UNATHORIZED })
 				}
+				return ToastError({
+					message: errorMessages.INTERNAL_SERVER_ERROR,
+				})
 			}
 		} finally {
 			setIsLoading(false)
