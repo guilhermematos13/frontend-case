@@ -38,7 +38,7 @@ Run Tests / Rodar os Testes
   npm run test
 ```
 
-# Contratos com APIs.
+## API Contracts / Contratos com APIs.
 
 A `api` já é fornecida, e por ser em javascript você tem total poder de edição e manutenção dela no próprio projeto.
 
@@ -116,6 +116,7 @@ interface IResponseList {
 - zod
 
 ## Coverage
+<img width="665" src="https://github.com/user-attachments/assets/ddadafaa-91dc-4885-ab48-340d16c20511">
 
 ## Portas de Acesso
 
