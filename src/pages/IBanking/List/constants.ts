@@ -1,4 +1,4 @@
-import { Options } from "./Components_temp/FilterButtons/types"
+import { Options } from "./components/FilterButtons/types"
 
 export const buttonsFilterOptions: Options[] = [
 	{
